@@ -18,4 +18,4 @@ Respostas:
 
 4. A quantidade de bits destinadas ao endereço da mémoria interfere na quantidade de memória possível para o processador trabalhar, independente do tipo de memória, e o largura de banda do processador interfere na velocidade do mesmo.
 
-5. Pois o mesmo apresetna suporte para diversas tecnbologias e tipos de linguagem de programação.
+5. Pois o mesmo apresenta suporte para diversas tecnbologias e tipos de linguagem de programação e possui opções de baixo consumo.
