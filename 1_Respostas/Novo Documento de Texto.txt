@@ -63,10 +63,10 @@ Respostas:
  
 3. (a) add.w R5,R5
    (b) mov.w R6,R11
-		   add.w R6,R6
-		   add.w R11,R6
+       add.w R6,R6
+       add.w R11,R6
    (c) add.w R5,R5
-		   add.w R5,R5
+       add.w R5,R5
    (d) clr.w R11
        add.w R10,R11
        add.w R9,R11
