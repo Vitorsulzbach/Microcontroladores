@@ -18,3 +18,122 @@
 
 Respostas:
 
+
+1. (a)
+	a |= 1;
+   (b)
+	a |= 3;
+   (c)
+	a &= 0x11111011b;
+   (d)
+   	a &= 0x11110011b;
+   (e)
+   	if((a & 128)== 128) {
+	    a &= 128;
+	} else {
+	    a |= 128;
+	}
+	
+	
+2.
+
+
+void main(void)
+{
+	WDTCTL = WDTPW | WDTHOLD;
+	P1DIR |= 0xff;
+	int s =1;
+	while(s==1){
+	int    i=0;
+	while(i<10000) {
+	    i++;
+	}
+	P1OUT= 65;
+	i=0;
+    while(i<10000) {
+        i++;
+    }
+    P1OUT= 0;
+	}
+}
+
+
+3.
+
+
+void main(void)
+{
+	WDTCTL = WDTPW | WDTHOLD;		
+	P1DIR = 65;					
+	P1REN = 8;
+	P1OUT=8;
+	while(1){
+	if ((P1IN & 8)== 0){
+	    P1OUT |= 65;
+	} else {
+	    P1OUT = 8;
+	}
+	}
+}
+
+
+4. e 5. Pisca LEDs usando a função Pisca();
+
+
+void main(void)
+{
+	WDTCTL = WDTPW | WDTHOLD;	
+	P1DIR = 65;					
+	P1REN = 8;
+	P1OUT=8;
+	while(1){
+	pisca();
+    int g=0;
+    while(g<10000) {
+        g++;
+    }
+    g=0;
+	}
+}
+
+void pisca(void){
+    P1OUT |= 65;
+    int g = 0;
+    while(g<10000) {
+        g++;
+    }
+    g=0;
+    P1OUT &=~65;
+    return;
+}
+
+
+6.
+
+
+#include <msp430.h>				
+
+void main(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;       // stop watchdog timer
+    P1DIR = 65;                 // configure P1.1 as output
+    P1REN = 8;
+    P1OUT=8;
+    while(1){
+    if ((P1IN & 8)== 0){
+        pisca();
+    } else {
+        P1OUT = 8;
+    }
+    }
+}
+void pisca(void){
+    P1OUT |= 65;
+    int g = 0;
+    while(g<10000) {
+        g++;
+    }
+    g=0;
+    P1OUT &=~65;
+    return;
+}
