@@ -61,20 +61,43 @@ void main(void)
 3.
 
 
-void main(void)
+
+int main(void)
 {
-	WDTCTL = WDTPW | WDTHOLD;		
-	P1DIR = 65;					
+	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+	P1DIR = 65;
 	P1REN = 8;
-	P1OUT=8;
-	while(1){
-	if ((P1IN & 8)== 0){
-	    P1OUT |= 65;
-	} else {
-	    P1OUT = 8;
+	P1OUT = 8;
+	int t = 20000;
+	for(;;){
+	    if ((P1IN&8) == 8){
+	        P1OUT = 8;
+	    } else {
+	        P1OUT = 73;
+	        int i = 0;
+	        while (i<t) {
+	            i++;
+	        }
+	        i=0;
+	        P1OUT = 8;
+	        while (i<t) {
+	            i++;
+	        }
+	        i=0;
+	        P1OUT = 73;
+	        while (i<t) {
+	            i++;
+	        }
+	        i=0;
+	        P1OUT = 8;
+	        while ((P1IN&8) == 0) {
+
+	        }
+	    }
 	}
-	}
+	return 0;
 }
+
 
 
 4. e 5. Pisca LEDs usando a função Pisca();
